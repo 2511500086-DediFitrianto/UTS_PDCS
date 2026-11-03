@@ -4,7 +4,7 @@ declare(strict_types=1);
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'db_event');
+define('DB_NAME', 'db_wisata');
 
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
