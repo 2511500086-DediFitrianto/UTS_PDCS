@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2026 at 09:02 AM
+-- Generation Time: Nov 03, 2026 at 12:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -32,6 +32,21 @@ CREATE TABLE `kategori` (
   `nama_kategori` varchar(100) NOT NULL,
   `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
+(2, 'Pantai', 'Pemandangan yang indah'),
+(3, 'bukit', 'Pemandangan yang indah'),
+(4, 'Vila', 'fasilitas lengkap'),
+(5, 'Waterpark', 'Pemandian yang seru'),
+(6, 'q', 'Pemandian yang seru'),
+(7, '87654', 'Pemandian yang seru'),
+(8, 'jsj', 'Pemandian yang seru'),
+(9, 'Wisata Pengujian', 'Pengujian data kategori'),
+(10, 'WisataPengujian', 'Pengujian respons 404');
 
 -- --------------------------------------------------------
 
@@ -101,19 +116,19 @@ ALTER TABLE `wisata`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
