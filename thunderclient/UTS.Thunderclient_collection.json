@@ -1,0 +1,361 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "UTS Event Management",
+  "dateExported": "2026-10-30T09:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "req001",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET semua Event",
+      "url": "{{baseUrl}}/api/event.php",
+      "method": "GET",
+      "sortNum": 1,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req002",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET detail Event",
+      "url": "{{baseUrl}}/api/event.php?id=1",
+      "method": "GET",
+      "sortNum": 2,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req003",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET search pagination Event",
+      "url": "{{baseUrl}}/api/event.php?search=a&page=1&limit=5",
+      "method": "GET",
+      "sortNum": 3,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req004",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET semua Peserta",
+      "url": "{{baseUrl}}/api/peserta.php",
+      "method": "GET",
+      "sortNum": 4,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req005",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET detail Peserta",
+      "url": "{{baseUrl}}/api/peserta.php?id=1",
+      "method": "GET",
+      "sortNum": 5,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req006",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET search pagination Peserta",
+      "url": "{{baseUrl}}/api/peserta.php?search=a&page=1&limit=5",
+      "method": "GET",
+      "sortNum": 6,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req007",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET semua Pendaftaran",
+      "url": "{{baseUrl}}/api/pendaftaran.php",
+      "method": "GET",
+      "sortNum": 7,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req008",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET detail Pendaftaran",
+      "url": "{{baseUrl}}/api/pendaftaran.php?id=1",
+      "method": "GET",
+      "sortNum": 8,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req009",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET search pagination Pendaftaran",
+      "url": "{{baseUrl}}/api/pendaftaran.php?search=a&page=1&limit=5",
+      "method": "GET",
+      "sortNum": 9,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req010",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST event sukses 201",
+      "url": "{{baseUrl}}/api/event.php",
+      "method": "POST",
+      "sortNum": 10,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_event\": \"EVT-006\",\n  \"nama_event\": \"Seminar Data Science\",\n  \"deskripsi\": \"Pengenalan analisis data.\",\n  \"lokasi\": \"Aula Kampus\",\n  \"tanggal_event\": \"2026-12-15\",\n  \"kuota\": 100,\n  \"biaya\": 30000\n}"
+      }
+    },
+    {
+      "_id": "req011",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST event duplikat 409",
+      "url": "{{baseUrl}}/api/event.php",
+      "method": "POST",
+      "sortNum": 11,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_event\": \"EVT-001\",\n  \"nama_event\": \"Event Duplikat\",\n  \"lokasi\": \"Aula\",\n  \"tanggal_event\": \"2026-12-20\",\n  \"kuota\": 50,\n  \"biaya\": 0\n}"
+      }
+    },
+    {
+      "_id": "req012",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST event field kurang 400",
+      "url": "{{baseUrl}}/api/event.php",
+      "method": "POST",
+      "sortNum": 12,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_event\": \"EVT-007\",\n  \"nama_event\": \"Event Tidak Lengkap\"\n}"
+      }
+    },
+    {
+      "_id": "req013",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "PUT event sukses 200",
+      "url": "{{baseUrl}}/api/event.php?id=1",
+      "method": "PUT",
+      "sortNum": 13,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_event\": \"EVT-001\",\n  \"nama_event\": \"Seminar Teknologi Digital\",\n  \"deskripsi\": \"Seminar teknologi digital.\",\n  \"lokasi\": \"Auditorium Kampus Atma Luhur\",\n  \"tanggal_event\": \"2026-11-10\",\n  \"kuota\": 150,\n  \"biaya\": 25000\n}"
+      }
+    },
+    {
+      "_id": "req014",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "PUT event tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/event.php?id=99999",
+      "method": "PUT",
+      "sortNum": 14,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_event\": \"EVT-999\",\n  \"nama_event\": \"Tidak Ada\",\n  \"lokasi\": \"Aula\",\n  \"tanggal_event\": \"2026-12-20\",\n  \"kuota\": 10,\n  \"biaya\": 0\n}"
+      }
+    },
+    {
+      "_id": "req015",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "GET pendaftaran detail tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/pendaftaran.php?id=99999",
+      "method": "GET",
+      "sortNum": 15,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req016",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "DELETE peserta tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/peserta.php?id=99999",
+      "method": "DELETE",
+      "sortNum": 16,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req017",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "Method tidak diizinkan 405",
+      "url": "{{baseUrl}}/api/event.php",
+      "method": "PATCH",
+      "sortNum": 17,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req018",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST peserta sukses 201",
+      "url": "{{baseUrl}}/api/peserta.php",
+      "method": "POST",
+      "sortNum": 18,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_peserta\": \"PST-006\",\n  \"nama\": \"Fajar Ramadhan\",\n  \"email\": \"fajar@example.com\",\n  \"no_hp\": \"081234560006\",\n  \"instansi\": \"Institut Atma Luhur\"\n}"
+      }
+    },
+    {
+      "_id": "req019",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST pendaftaran sukses 201",
+      "url": "{{baseUrl}}/api/pendaftaran.php",
+      "method": "POST",
+      "sortNum": 19,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_pendaftaran\": \"REG-2026-006\",\n  \"id_event\": 1,\n  \"id_peserta\": 3,\n  \"tanggal_daftar\": \"2026-10-30\",\n  \"status_pendaftaran\": \"terdaftar\"\n}"
+      }
+    },
+    {
+      "_id": "req020",
+      "colId": "collection-uts-event",
+      "containerId": "",
+      "name": "POST pendaftaran duplikat event-peserta 409",
+      "url": "{{baseUrl}}/api/pendaftaran.php",
+      "method": "POST",
+      "sortNum": 20,
+      "created": 1793376000000,
+      "modified": 1793376000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"kode_pendaftaran\": \"REG-2026-007\",\n  \"id_event\": 1,\n  \"id_peserta\": 1,\n  \"tanggal_daftar\": \"2026-10-30\",\n  \"status_pendaftaran\": \"terdaftar\"\n}"
+      }
+    }
+  ]
+}
