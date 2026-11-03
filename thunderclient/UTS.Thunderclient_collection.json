@@ -1,303 +1,261 @@
 {
   "client": "Thunder Client",
-  "collectionName": "UTS Event Management",
-  "dateExported": "2026-10-30T09:00:00.000Z",
+  "collectionName": "UTS Sistem Informasi Wisata dan Pemesanan Tiket",
+  "dateExported": "2026-11-03T08:00:00.000Z",
   "version": "1.2",
   "folders": [],
   "requests": [
     {
       "_id": "req001",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET semua Event",
-      "url": "{{baseUrl}}/api/event.php",
+      "name": "GET semua Kategori",
+      "url": "{{baseUrl}}/api/kategori.php",
       "method": "GET",
       "sortNum": 1,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [],
       "params": [],
       "tests": []
     },
     {
       "_id": "req002",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET detail Event",
-      "url": "{{baseUrl}}/api/event.php?id=1",
+      "name": "GET detail Kategori",
+      "url": "{{baseUrl}}/api/kategori.php?id=1",
       "method": "GET",
       "sortNum": 2,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [],
       "params": [],
       "tests": []
     },
     {
       "_id": "req003",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET search pagination Event",
-      "url": "{{baseUrl}}/api/event.php?search=a&page=1&limit=5",
+      "name": "GET search pagination Kategori",
+      "url": "{{baseUrl}}/api/kategori.php?search=Wisata&page=1&limit=5",
       "method": "GET",
       "sortNum": 3,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [],
       "params": [],
       "tests": []
     },
     {
       "_id": "req004",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET semua Peserta",
-      "url": "{{baseUrl}}/api/peserta.php",
-      "method": "GET",
+      "name": "POST kategori sukses 201",
+      "url": "{{baseUrl}}/api/kategori.php",
+      "method": "POST",
       "sortNum": 4,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "params": [],
-      "tests": []
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nama_kategori\": \"Wisata Edukasi\",\n  \"deskripsi\": \"Tempat wisata edukasi dan pembelajaran.\"\n}"
+      }
     },
     {
       "_id": "req005",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET detail Peserta",
-      "url": "{{baseUrl}}/api/peserta.php?id=1",
-      "method": "GET",
+      "name": "POST kategori duplikat 409",
+      "url": "{{baseUrl}}/api/kategori.php",
+      "method": "POST",
       "sortNum": 5,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "params": [],
-      "tests": []
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nama_kategori\": \"Wisata Alam\",\n  \"deskripsi\": \"Pengujian duplikasi nama kategori.\"\n}"
+      }
     },
     {
       "_id": "req006",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET search pagination Peserta",
-      "url": "{{baseUrl}}/api/peserta.php?search=a&page=1&limit=5",
-      "method": "GET",
+      "name": "POST kategori field kurang 400",
+      "url": "{{baseUrl}}/api/kategori.php",
+      "method": "POST",
       "sortNum": 6,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "params": [],
-      "tests": []
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nama_kategori\": \"\"\n}"
+      }
     },
     {
       "_id": "req007",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET semua Pendaftaran",
-      "url": "{{baseUrl}}/api/pendaftaran.php",
-      "method": "GET",
+      "name": "PUT kategori sukses 200",
+      "url": "{{baseUrl}}/api/kategori.php?id=1",
+      "method": "PUT",
       "sortNum": 7,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "params": [],
-      "tests": []
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nama_kategori\": \"Wisata Alam Indonesia\",\n  \"deskripsi\": \"Kategori wisata alam di Indonesia.\"\n}"
+      }
     },
     {
       "_id": "req008",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET detail Pendaftaran",
-      "url": "{{baseUrl}}/api/pendaftaran.php?id=1",
-      "method": "GET",
+      "name": "PUT kategori tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/kategori.php?id=99999",
+      "method": "PUT",
       "sortNum": 8,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "params": [],
-      "tests": []
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nama_kategori\": \"Kategori Tidak Ada\",\n  \"deskripsi\": \"Pengujian data tidak ditemukan.\"\n}"
+      }
     },
     {
       "_id": "req009",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET search pagination Pendaftaran",
-      "url": "{{baseUrl}}/api/pendaftaran.php?search=a&page=1&limit=5",
+      "name": "GET kategori tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/kategori.php?id=99999",
       "method": "GET",
       "sortNum": 9,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [],
       "params": [],
       "tests": []
     },
     {
       "_id": "req010",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "POST event sukses 201",
-      "url": "{{baseUrl}}/api/event.php",
-      "method": "POST",
+      "name": "DELETE kategori tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/kategori.php?id=99999",
+      "method": "DELETE",
       "sortNum": 10,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
       "params": [],
-      "tests": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"kode_event\": \"EVT-006\",\n  \"nama_event\": \"Seminar Data Science\",\n  \"deskripsi\": \"Pengenalan analisis data.\",\n  \"lokasi\": \"Aula Kampus\",\n  \"tanggal_event\": \"2026-12-15\",\n  \"kuota\": 100,\n  \"biaya\": 30000\n}"
-      }
+      "tests": []
     },
     {
       "_id": "req011",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "POST event duplikat 409",
-      "url": "{{baseUrl}}/api/event.php",
-      "method": "POST",
+      "name": "Method kategori tidak diizinkan 405",
+      "url": "{{baseUrl}}/api/kategori.php",
+      "method": "PATCH",
       "sortNum": 11,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
       "params": [],
-      "tests": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"kode_event\": \"EVT-001\",\n  \"nama_event\": \"Event Duplikat\",\n  \"lokasi\": \"Aula\",\n  \"tanggal_event\": \"2026-12-20\",\n  \"kuota\": 50,\n  \"biaya\": 0\n}"
-      }
+      "tests": []
     },
     {
       "_id": "req012",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "POST event field kurang 400",
-      "url": "{{baseUrl}}/api/event.php",
-      "method": "POST",
+      "name": "GET semua Wisata",
+      "url": "{{baseUrl}}/api/wisata.php",
+      "method": "GET",
       "sortNum": 12,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
       "params": [],
-      "tests": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"kode_event\": \"EVT-007\",\n  \"nama_event\": \"Event Tidak Lengkap\"\n}"
-      }
+      "tests": []
     },
     {
       "_id": "req013",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "PUT event sukses 200",
-      "url": "{{baseUrl}}/api/event.php?id=1",
-      "method": "PUT",
+      "name": "GET detail Wisata",
+      "url": "{{baseUrl}}/api/wisata.php?id=1",
+      "method": "GET",
       "sortNum": 13,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
       "params": [],
-      "tests": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"kode_event\": \"EVT-001\",\n  \"nama_event\": \"Seminar Teknologi Digital\",\n  \"deskripsi\": \"Seminar teknologi digital.\",\n  \"lokasi\": \"Auditorium Kampus Atma Luhur\",\n  \"tanggal_event\": \"2026-11-10\",\n  \"kuota\": 150,\n  \"biaya\": 25000\n}"
-      }
+      "tests": []
     },
     {
       "_id": "req014",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "PUT event tidak ditemukan 404",
-      "url": "{{baseUrl}}/api/event.php?id=99999",
-      "method": "PUT",
+      "name": "GET search pagination Wisata",
+      "url": "{{baseUrl}}/api/wisata.php?search=Bromo&page=1&limit=5",
+      "method": "GET",
       "sortNum": 14,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
       "params": [],
-      "tests": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"kode_event\": \"EVT-999\",\n  \"nama_event\": \"Tidak Ada\",\n  \"lokasi\": \"Aula\",\n  \"tanggal_event\": \"2026-12-20\",\n  \"kuota\": 10,\n  \"biaya\": 0\n}"
-      }
+      "tests": []
     },
     {
       "_id": "req015",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "GET pendaftaran detail tidak ditemukan 404",
-      "url": "{{baseUrl}}/api/pendaftaran.php?id=99999",
-      "method": "GET",
-      "sortNum": 15,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "req016",
-      "colId": "collection-uts-event",
-      "containerId": "",
-      "name": "DELETE peserta tidak ditemukan 404",
-      "url": "{{baseUrl}}/api/peserta.php?id=99999",
-      "method": "DELETE",
-      "sortNum": 16,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "req017",
-      "colId": "collection-uts-event",
-      "containerId": "",
-      "name": "Method tidak diizinkan 405",
-      "url": "{{baseUrl}}/api/event.php",
-      "method": "PATCH",
-      "sortNum": 17,
-      "created": 1793376000000,
-      "modified": 1793376000000,
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "req018",
-      "colId": "collection-uts-event",
-      "containerId": "",
-      "name": "POST peserta sukses 201",
-      "url": "{{baseUrl}}/api/peserta.php",
+      "name": "POST wisata sukses 201",
+      "url": "{{baseUrl}}/api/wisata.php",
       "method": "POST",
-      "sortNum": 18,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "sortNum": 15,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [
         {
           "name": "Content-Type",
@@ -308,19 +266,88 @@
       "tests": [],
       "body": {
         "type": "json",
-        "raw": "{\n  \"kode_peserta\": \"PST-006\",\n  \"nama\": \"Fajar Ramadhan\",\n  \"email\": \"fajar@example.com\",\n  \"no_hp\": \"081234560006\",\n  \"instansi\": \"Institut Atma Luhur\"\n}"
+        "raw": "{\n  \"id_kategori\": 1,\n  \"kode_wisata\": \"WST006\",\n  \"nama_wisata\": \"Danau Toba\",\n  \"lokasi\": \"Sumatera Utara\",\n  \"deskripsi\": \"Destinasi wisata danau di Sumatera Utara.\",\n  \"harga_tiket\": 20000\n}"
+      }
+    },
+    {
+      "_id": "req016",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST wisata kode duplikat 409",
+      "url": "{{baseUrl}}/api/wisata.php",
+      "method": "POST",
+      "sortNum": 16,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_kategori\": 1,\n  \"kode_wisata\": \"WST001\",\n  \"nama_wisata\": \"Wisata Duplikat\",\n  \"lokasi\": \"Lokasi Pengujian\",\n  \"deskripsi\": \"Pengujian kode wisata duplikat.\",\n  \"harga_tiket\": 10000\n}"
+      }
+    },
+    {
+      "_id": "req017",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST wisata kategori tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/wisata.php",
+      "method": "POST",
+      "sortNum": 17,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_kategori\": 99999,\n  \"kode_wisata\": \"WST007\",\n  \"nama_wisata\": \"Wisata Kategori Tidak Ada\",\n  \"lokasi\": \"Lokasi Pengujian\",\n  \"deskripsi\": \"Pengujian foreign key.\",\n  \"harga_tiket\": 10000\n}"
+      }
+    },
+    {
+      "_id": "req018",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST wisata field kurang 400",
+      "url": "{{baseUrl}}/api/wisata.php",
+      "method": "POST",
+      "sortNum": 18,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_kategori\": 1,\n  \"kode_wisata\": \"WST008\"\n}"
       }
     },
     {
       "_id": "req019",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "POST pendaftaran sukses 201",
-      "url": "{{baseUrl}}/api/pendaftaran.php",
-      "method": "POST",
+      "name": "PUT wisata sukses 200",
+      "url": "{{baseUrl}}/api/wisata.php?id=1",
+      "method": "PUT",
       "sortNum": 19,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [
         {
           "name": "Content-Type",
@@ -331,19 +358,19 @@
       "tests": [],
       "body": {
         "type": "json",
-        "raw": "{\n  \"kode_pendaftaran\": \"REG-2026-006\",\n  \"id_event\": 1,\n  \"id_peserta\": 3,\n  \"tanggal_daftar\": \"2026-10-30\",\n  \"status_pendaftaran\": \"terdaftar\"\n}"
+        "raw": "{\n  \"id_kategori\": 1,\n  \"kode_wisata\": \"WST001\",\n  \"nama_wisata\": \"Gunung Bromo\",\n  \"lokasi\": \"Probolinggo, Jawa Timur\",\n  \"deskripsi\": \"Destinasi wisata alam Gunung Bromo.\",\n  \"harga_tiket\": 35000\n}"
       }
     },
     {
       "_id": "req020",
-      "colId": "collection-uts-event",
+      "colId": "collection-uts-wisata",
       "containerId": "",
-      "name": "POST pendaftaran duplikat event-peserta 409",
-      "url": "{{baseUrl}}/api/pendaftaran.php",
-      "method": "POST",
+      "name": "PUT wisata tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/wisata.php?id=99999",
+      "method": "PUT",
       "sortNum": 20,
-      "created": 1793376000000,
-      "modified": 1793376000000,
+      "created": 1793718000000,
+      "modified": 1793718000000,
       "headers": [
         {
           "name": "Content-Type",
@@ -354,8 +381,272 @@
       "tests": [],
       "body": {
         "type": "json",
-        "raw": "{\n  \"kode_pendaftaran\": \"REG-2026-007\",\n  \"id_event\": 1,\n  \"id_peserta\": 1,\n  \"tanggal_daftar\": \"2026-10-30\",\n  \"status_pendaftaran\": \"terdaftar\"\n}"
+        "raw": "{\n  \"id_kategori\": 1,\n  \"kode_wisata\": \"WST999\",\n  \"nama_wisata\": \"Wisata Tidak Ada\",\n  \"lokasi\": \"Lokasi Pengujian\",\n  \"deskripsi\": \"Pengujian data tidak ditemukan.\",\n  \"harga_tiket\": 10000\n}"
       }
+    },
+    {
+      "_id": "req021",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "GET wisata tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/wisata.php?id=99999",
+      "method": "GET",
+      "sortNum": 21,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req022",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "DELETE wisata tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/wisata.php?id=99999",
+      "method": "DELETE",
+      "sortNum": 22,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req023",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "Method wisata tidak diizinkan 405",
+      "url": "{{baseUrl}}/api/wisata.php",
+      "method": "PATCH",
+      "sortNum": 23,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req024",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "GET semua Pemesanan",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "GET",
+      "sortNum": 24,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req025",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "GET detail Pemesanan",
+      "url": "{{baseUrl}}/api/pemesanan.php?id=1",
+      "method": "GET",
+      "sortNum": 25,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req026",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "GET search pagination Pemesanan",
+      "url": "{{baseUrl}}/api/pemesanan.php?search=Andi&page=1&limit=5",
+      "method": "GET",
+      "sortNum": 26,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req027",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST pemesanan sukses 201",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "POST",
+      "sortNum": 27,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 1,\n  \"kode_pemesanan\": \"PSN006\",\n  \"nama_pengunjung\": \"Fajar Ramadhan\",\n  \"tanggal_kunjungan\": \"2026-12-05\",\n  \"jumlah_tiket\": 2,\n  \"total_harga\": 70000,\n  \"status_pemesanan\": \"menunggu\"\n}"
+      }
+    },
+    {
+      "_id": "req028",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST pemesanan kode duplikat 409",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "POST",
+      "sortNum": 28,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 1,\n  \"kode_pemesanan\": \"PSN001\",\n  \"nama_pengunjung\": \"Pengunjung Duplikat\",\n  \"tanggal_kunjungan\": \"2026-12-06\",\n  \"jumlah_tiket\": 1,\n  \"total_harga\": 35000,\n  \"status_pemesanan\": \"menunggu\"\n}"
+      }
+    },
+    {
+      "_id": "req029",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST pemesanan wisata tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "POST",
+      "sortNum": 29,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 99999,\n  \"kode_pemesanan\": \"PSN007\",\n  \"nama_pengunjung\": \"Pengunjung Uji\",\n  \"tanggal_kunjungan\": \"2026-12-07\",\n  \"jumlah_tiket\": 1,\n  \"total_harga\": 35000,\n  \"status_pemesanan\": \"menunggu\"\n}"
+      }
+    },
+    {
+      "_id": "req030",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "POST pemesanan field kurang 400",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "POST",
+      "sortNum": 30,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 1,\n  \"kode_pemesanan\": \"PSN008\"\n}"
+      }
+    },
+    {
+      "_id": "req031",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "PUT pemesanan sukses 200",
+      "url": "{{baseUrl}}/api/pemesanan.php?id=1",
+      "method": "PUT",
+      "sortNum": 31,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 1,\n  \"kode_pemesanan\": \"PSN001\",\n  \"nama_pengunjung\": \"Andi Saputra\",\n  \"tanggal_kunjungan\": \"2026-11-10\",\n  \"jumlah_tiket\": 2,\n  \"total_harga\": 70000,\n  \"status_pemesanan\": \"dibayar\"\n}"
+      }
+    },
+    {
+      "_id": "req032",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "PUT pemesanan tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/pemesanan.php?id=99999",
+      "method": "PUT",
+      "sortNum": 32,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id_wisata\": 1,\n  \"kode_pemesanan\": \"PSN999\",\n  \"nama_pengunjung\": \"Tidak Ada\",\n  \"tanggal_kunjungan\": \"2026-12-08\",\n  \"jumlah_tiket\": 1,\n  \"total_harga\": 35000,\n  \"status_pemesanan\": \"menunggu\"\n}"
+      }
+    },
+    {
+      "_id": "req033",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "GET pemesanan tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/pemesanan.php?id=99999",
+      "method": "GET",
+      "sortNum": 33,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req034",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "DELETE pemesanan tidak ditemukan 404",
+      "url": "{{baseUrl}}/api/pemesanan.php?id=99999",
+      "method": "DELETE",
+      "sortNum": 34,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "req035",
+      "colId": "collection-uts-wisata",
+      "containerId": "",
+      "name": "Method pemesanan tidak diizinkan 405",
+      "url": "{{baseUrl}}/api/pemesanan.php",
+      "method": "PATCH",
+      "sortNum": 35,
+      "created": 1793718000000,
+      "modified": 1793718000000,
+      "headers": [],
+      "params": [],
+      "tests": []
     }
   ]
 }
