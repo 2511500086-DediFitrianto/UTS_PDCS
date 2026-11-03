@@ -74,49 +74,75 @@ try {
         ]);
     }
 
+    // =========================
+    // POST: Menambahkan Kategori
+    // =========================
     if ($method === 'POST') {
 
-        $data = json_input();
+    $data = json_input();
 
-        require_fields($data, ['nama_kategori']);
+    require_fields($data, ['nama_kategori']);
 
-        $nama = trim((string)$data['nama_kategori']);
-        $deskripsi = isset($data['deskripsi'])
-            ? trim((string)$data['deskripsi'])
-            : null;
+    $nama = trim((string)$data['nama_kategori']);
 
-        if ($nama === '' || strlen($nama) > 100) {
-            json_response(400, false, 'Nama kategori tidak valid.', null);
-        }
+    $deskripsi = isset($data['deskripsi'])
+        ? trim((string)$data['deskripsi'])
+        : null;
 
-        // Memeriksa nama kategori
-        $check = $conn->prepare(
-            'SELECT id_kategori FROM kategori WHERE nama_kategori = ?'
-        );
-
-        $check->bind_param('s', $nama);
-        $check->execute();
-
-        if ($check->get_result()->num_rows > 0) {
-            json_response(409, false, 'Nama kategori sudah digunakan.', null);
-        }
-
-        // Insert data
-        $stmt = $conn->prepare(
-            'INSERT INTO kategori (nama_kategori, deskripsi)
-             VALUES (?, ?)'
-        );
-
-        $stmt->bind_param('ss', $nama, $deskripsi);
-
-        if (!$stmt->execute()) {
-            database_error($conn, 'Insert kategori');
-        }
-
-        json_response(201, true, 'Kategori berhasil ditambahkan.', [
-            'id_kategori' => $conn->insert_id
-        ]);
+    if ($nama === '' || strlen($nama) > 100) {
+        json_response(400, false, 'Nama kategori tidak valid.', null);
     }
+
+    // Memeriksa ID kategori jika dikirim
+    if (isset($data['id_kategori'])) {
+
+        $id_kategori = (int)$data['id_kategori'];
+
+        $cek = $conn->prepare(
+            'SELECT id_kategori FROM kategori WHERE id_kategori = ?'
+        );
+
+        $cek->bind_param('i', $id_kategori);
+        $cek->execute();
+
+        if ($cek->get_result()->num_rows === 0) {
+            json_response(
+                404,
+                false,
+                'Data kategori tidak ditemukan.',
+                null
+            );
+        }
+    }
+
+    // Memeriksa nama kategori duplikat
+    $check = $conn->prepare(
+        'SELECT id_kategori FROM kategori WHERE nama_kategori = ?'
+    );
+
+    $check->bind_param('s', $nama);
+    $check->execute();
+
+    if ($check->get_result()->num_rows > 0) {
+        json_response(409, false, 'Nama kategori sudah digunakan.', null);
+    }
+
+    // Insert data kategori
+    $stmt = $conn->prepare(
+        'INSERT INTO kategori (nama_kategori, deskripsi)
+         VALUES (?, ?)'
+    );
+
+    $stmt->bind_param('ss', $nama, $deskripsi);
+
+    if (!$stmt->execute()) {
+        database_error($conn, 'Insert kategori');
+    }
+
+    json_response(201, true, 'Kategori berhasil ditambahkan.', [
+        'id_kategori' => $conn->insert_id
+    ]);
+}
 
     // =========================
     // PUT: Mengubah Data Kategori
