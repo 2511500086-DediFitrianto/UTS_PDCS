@@ -17,7 +17,6 @@ try {
         $limit = min(100, max(1, (int)($_GET['limit'] ?? 10)));
         $offset = ($page - 1) * $limit;
 
-        // GET berdasarkan ID
         if (isset($_GET['id'])) {
             $id = query_id();
 
@@ -41,7 +40,6 @@ try {
             json_response(200, true, 'Detail pemesanan berhasil diambil.', $row);
         }
 
-        // GET semua data + pencarian + pagination
         $like = '%' . $search . '%';
 
         $stmt = $conn->prepare(
@@ -60,7 +58,6 @@ try {
 
         $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-        // Menghitung total data
         $count = $conn->prepare(
             'SELECT COUNT(*) AS total
              FROM pemesanan
@@ -109,7 +106,6 @@ try {
         $harga = (int)$data['total_harga'];
         $status = trim((string)$data['status_pemesanan']);
 
-        // Validasi data
         if (
             $id_wisata <= 0 ||
             $kode === '' ||
@@ -121,21 +117,18 @@ try {
             json_response(400, false, 'Data pemesanan tidak valid.', null);
         }
 
-        // Validasi tanggal
         $date = DateTime::createFromFormat('Y-m-d', $tanggal);
 
         if (!$date || $date->format('Y-m-d') !== $tanggal) {
             json_response(400, false, 'Format tanggal kunjungan tidak valid.', null);
         }
 
-        // Validasi status
         $allowed_status = ['menunggu', 'selesai', 'dibayar', 'dibatalkan'];
 
         if (!in_array($status, $allowed_status, true)) {
             json_response(400, false, 'Status pemesanan tidak valid.', null);
         }
 
-        // Memeriksa kode pemesanan
         $check = $conn->prepare(
             'SELECT id_pemesanan
              FROM pemesanan
@@ -149,7 +142,6 @@ try {
             json_response(409, false, 'Kode pemesanan sudah digunakan.', null);
         }
 
-        // Memeriksa ID wisata
         $wisata = $conn->prepare(
             'SELECT id_wisata FROM wisata WHERE id_wisata = ?'
         );
@@ -161,7 +153,6 @@ try {
             json_response(404, false, 'Data wisata tidak ditemukan.', null);
         }
 
-        // Insert data
         $stmt = $conn->prepare(
             'INSERT INTO pemesanan
                 (id_wisata, kode_pemesanan, nama_pengunjung,
@@ -216,7 +207,6 @@ try {
         $harga = (int)$data['total_harga'];
         $status = trim((string)$data['status_pemesanan']);
 
-        // Memeriksa ID pemesanan
         $exists = $conn->prepare(
             'SELECT id_pemesanan
              FROM pemesanan
@@ -230,7 +220,6 @@ try {
             json_response(404, false, 'Pemesanan tidak ditemukan.', null);
         }
 
-        // Validasi data
         if (
             $id_wisata <= 0 ||
             $kode === '' ||
@@ -242,21 +231,18 @@ try {
             json_response(400, false, 'Data pemesanan tidak valid.', null);
         }
 
-        // Validasi tanggal
         $date = DateTime::createFromFormat('Y-m-d', $tanggal);
 
         if (!$date || $date->format('Y-m-d') !== $tanggal) {
             json_response(400, false, 'Format tanggal kunjungan tidak valid.', null);
         }
 
-        // Validasi status
         $allowed_status = ['menunggu', 'selesai', 'dibayar', 'dibatalkan'];
 
         if (!in_array($status, $allowed_status, true)) {
             json_response(400, false, 'Status pemesanan tidak valid.', null);
         }
 
-        // Memeriksa ID wisata
         $wisata = $conn->prepare(
             'SELECT id_wisata FROM wisata WHERE id_wisata = ?'
         );
@@ -268,7 +254,6 @@ try {
             json_response(404, false, 'Data wisata tidak ditemukan.', null);
         }
 
-        // Memeriksa kode pemesanan agar tidak duplikat
         $check = $conn->prepare(
             'SELECT id_pemesanan
              FROM pemesanan
@@ -283,7 +268,6 @@ try {
             json_response(409, false, 'Kode pemesanan sudah digunakan.', null);
         }
 
-        // Update data
         $stmt = $conn->prepare(
             'UPDATE pemesanan
              SET id_wisata = ?,
@@ -324,7 +308,6 @@ try {
 
         $id = query_id();
 
-        // Memeriksa ID pemesanan
         $exists = $conn->prepare(
             'SELECT id_pemesanan
              FROM pemesanan
@@ -338,7 +321,6 @@ try {
             json_response(404, false, 'Pemesanan tidak ditemukan.', null);
         }
 
-        // Hapus data
         $stmt = $conn->prepare(
             'DELETE FROM pemesanan
              WHERE id_pemesanan = ?'

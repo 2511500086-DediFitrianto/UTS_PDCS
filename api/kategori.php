@@ -13,7 +13,6 @@ try {
         $limit = min(100, max(1, (int)($_GET['limit'] ?? 10)));
         $offset = ($page - 1) * $limit;
 
-        // GET berdasarkan ID
         if (isset($_GET['id'])) {
             $id = query_id();
 
@@ -35,7 +34,6 @@ try {
             json_response(200, true, 'Detail kategori berhasil diambil.', $row);
         }
 
-        // GET semua data + pencarian + pagination
         $like = '%' . $search . '%';
 
         $stmt = $conn->prepare(
@@ -51,7 +49,6 @@ try {
 
         $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-        // Menghitung total data
         $count = $conn->prepare(
             'SELECT COUNT(*) AS total
              FROM kategori
@@ -93,7 +90,6 @@ try {
         json_response(400, false, 'Nama kategori tidak valid.', null);
     }
 
-    // Memeriksa ID kategori jika dikirim
     if (isset($data['id_kategori'])) {
 
         $id_kategori = (int)$data['id_kategori'];
@@ -115,7 +111,6 @@ try {
         }
     }
 
-    // Memeriksa nama kategori duplikat
     $check = $conn->prepare(
         'SELECT id_kategori FROM kategori WHERE nama_kategori = ?'
     );
@@ -127,7 +122,6 @@ try {
         json_response(409, false, 'Nama kategori sudah digunakan.', null);
     }
 
-    // Insert data kategori
     $stmt = $conn->prepare(
         'INSERT INTO kategori (nama_kategori, deskripsi)
          VALUES (?, ?)'
@@ -159,7 +153,6 @@ try {
             ? trim((string)$data['deskripsi'])
             : null;
 
-        // Memeriksa ID kategori
         $exists = $conn->prepare(
             'SELECT id_kategori FROM kategori WHERE id_kategori = ?'
         );
@@ -175,7 +168,6 @@ try {
             json_response(400, false, 'Nama kategori tidak valid.', null);
         }
 
-        // Memeriksa nama kategori agar tidak duplikat
         $check = $conn->prepare(
             'SELECT id_kategori
              FROM kategori
@@ -189,7 +181,6 @@ try {
             json_response(409, false, 'Nama kategori sudah digunakan.', null);
         }
 
-        // Update data
         $stmt = $conn->prepare(
             'UPDATE kategori
              SET nama_kategori = ?, deskripsi = ?
@@ -214,7 +205,6 @@ try {
 
         $id = query_id();
 
-        // Memeriksa ID kategori
         $exists = $conn->prepare(
             'SELECT id_kategori FROM kategori WHERE id_kategori = ?'
         );
@@ -226,7 +216,6 @@ try {
             json_response(404, false, 'Kategori tidak ditemukan.', null);
         }
 
-        // Hapus data
         $stmt = $conn->prepare(
             'DELETE FROM kategori WHERE id_kategori = ?'
         );
