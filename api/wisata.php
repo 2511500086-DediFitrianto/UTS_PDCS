@@ -56,7 +56,6 @@ function error_sql($stmt): void
 
 if ($method === 'GET') {
 
-    // GET berdasarkan ID
     if (isset($_GET['id'])) {
 
         $id = query_id();
@@ -81,7 +80,6 @@ if ($method === 'GET') {
         json_response(200, true, 'Data wisata berhasil ditampilkan.', $data);
     }
 
-    // GET semua data, pencarian, dan pagination
     $search = trim($_GET['search'] ?? '');
 
     $sql = "SELECT w.*, k.nama_kategori

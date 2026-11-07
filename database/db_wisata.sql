@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2026 at 12:11 PM
+-- Generation Time: Nov 07, 2026 at 09:07 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -40,13 +40,11 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
 (2, 'Pantai', 'Pemandangan yang indah'),
 (3, 'bukit', 'Pemandangan yang indah'),
-(4, 'Vila', 'fasilitas lengkap'),
+(4, 'kota', 'Ketawai'),
 (5, 'Waterpark', 'Pemandian yang seru'),
-(6, 'q', 'Pemandian yang seru'),
 (7, '87654', 'Pemandian yang seru'),
-(8, 'jsj', 'Pemandian yang seru'),
 (9, 'Wisata Pengujian', 'Pengujian data kategori'),
-(10, 'WisataPengujian', 'Pengujian respons 404');
+(11, 'Pulau', 'Pulau Ketawai');
 
 -- --------------------------------------------------------
 
@@ -65,6 +63,15 @@ CREATE TABLE `pemesanan` (
   `status_pemesanan` enum('menunggu','dibayar','selesai','dibatalkan') NOT NULL DEFAULT 'menunggu'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisata`, `kode_pemesanan`, `nama_pengunjung`, `tanggal_kunjungan`, `jumlah_tiket`, `total_harga`, `status_pemesanan`) VALUES
+(2, 3, 'PSN011', 'Pika', '2025-12-10', 4, 4.00, 'selesai'),
+(3, 5, 'PSN013', 'Dedi', '2026-12-10', 10, 5000000.00, 'selesai'),
+(5, 3, 'PSN012', 'Dedi', '2026-12-10', 10, 5000000.00, 'selesai');
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +87,17 @@ CREATE TABLE `wisata` (
   `deskripsi` text DEFAULT NULL,
   `harga_tiket` decimal(12,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wisata`
+--
+
+INSERT INTO `wisata` (`id_wisata`, `id_kategori`, `kode_wisata`, `nama_wisata`, `lokasi`, `deskripsi`, `harga_tiket`) VALUES
+(3, 3, 'W002', 'Bukit', 'Sungai Liat', 'Pemandangan', 40000.00),
+(5, 4, 'W003', 'Bukit', 'Simpang Liat', 'Lautan', 400000.00),
+(8, 11, 'W0009', 'Pulau', 'Ketawai', 'Pulau Ketawai', 400000.00),
+(9, 3, 'W0010', 'Pulau', 'Ketawai', 'Pulau Ketawai', 400000.00),
+(10, 3, 'W0100', 'Pantai', 'Pangkalpinang', 'Pemandangan', 200000.00);
 
 --
 -- Indexes for dumped tables
@@ -116,19 +134,19 @@ ALTER TABLE `wisata`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
