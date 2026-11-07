@@ -204,7 +204,7 @@ git push -u origin main
 Buat commit terpisah sesuai kontribusi anggota.
 
 ## 12. Video presentasi
-Semua anggota harus tampil dengan wajah dan suara jelas, menjelaskan bagian yang dikerjakan dan alasan teknisnya, serta mendemonstrasikan project. Upload video ke Google Drive dan masukkan link ke `link-video.txt`.
+Semua anggota harus tampil dengan wajah dan suara jelas, menjelaskan bagian yang dikerjakan dan alasan teknisnya, serta mendemonstrasikan project. Upload video ke Google Drive dan masukkan link ke `https://drive.google.com/drive/folders/1gO5V74ec7pDbDtdV6fbdmoo7EdGvwVIt?usp=sharing`.
 
 ## 13. Kontrak untuk UAS
 Setelah UTS, pertahankan nama file endpoint, nama field, dan struktur JSON. Aplikasi Kotlin + Retrofit akan bergantung pada kontrak API ini.
